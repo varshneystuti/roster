@@ -1,0 +1,144 @@
+{
+	"info": {
+		"_postman_id": "2dfd566d-a752-4c0a-9a11-290fbb62c0dc",
+		"name": "Roster",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "1016922"
+	},
+	"item": [
+		{
+			"name": "Upload File",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "roster_file",
+							"type": "file",
+							"src": "/Users/vishnu/Downloads/Roster - CrewConnex.html"
+						}
+					]
+				},
+				"url": "http://127.0.0.1:8000/api/upload-roster"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Flights between two dates",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "start_date",
+							"value": "2022-01-01",
+							"type": "text"
+						},
+						{
+							"key": "end_date",
+							"value": "2022-01-31",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/events?start_date=2022-01-10&end_date=2022-01-31",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"events"
+					],
+					"query": [
+						{
+							"key": "start_date",
+							"value": "2022-01-10"
+						},
+						{
+							"key": "end_date",
+							"value": "2022-01-31"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Flights with location code",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/flights/from-location?location=CPH",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"flights",
+						"from-location"
+					],
+					"query": [
+						{
+							"key": "location",
+							"value": "CPH"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Flights On Stand By",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8000/api/flights/next-week-sby"
+			},
+			"response": []
+		},
+		{
+			"name": "Get Flights Of Next Week",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://127.0.0.1:8000/api/flights/next-week"
+			},
+			"response": []
+		}
+	]
+}
